@@ -17,13 +17,11 @@ async function schedule(req, res) {
   }
   try {
     messageCtrl.scheduleMsg(message, day, time)
-    res.status(201).json({ message: 'Message scheduled successfully' });
+    res.status(200).json({ message: 'Message scheduled successfully' });
   } catch (error) {
     // Handle errors
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
-
-  return
 }
 

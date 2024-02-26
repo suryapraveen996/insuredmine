@@ -15,8 +15,8 @@ const messageSchema = new mongoose.Schema({
     time: String
   });
   
-  // Create a model based on the schema
-  const Message = mongoose.model('Message', messageSchema);
+// Create a model based on the schema
+const Message = mongoose.model('Message', messageSchema);
   
 lib.scheduleMsg = async (msg, day, time) => {
   try {
