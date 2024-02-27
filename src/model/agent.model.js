@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// Define a schema for the message model
 const agentSchema = new mongoose.Schema({
   name: String,
 });
@@ -9,9 +8,9 @@ const userSchema = new mongoose.Schema({
   firstName: String,
   dob: Date,
   address: String,
-  phone: Number,
+  phone: String,
   state: String,
-  zip: Number,
+  zip: String,
   email: String,
   gender: String,
   userType: String,
@@ -30,16 +29,15 @@ companyName: String,
 });
   
 const policySchema = new mongoose.Schema({
-policyNumber: String,
-startDate: Date,
-endDate: Date,
-category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
-carrier: { type: mongoose.Schema.Types.ObjectId, ref: 'Carrier' },
-agent: { type: mongoose.Schema.Types.ObjectId, ref: 'Agent' },
-user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  policyNumber: String,
+  startDate: Date,
+  endDate: Date,
+  category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
+  carrier: { type: mongoose.Schema.Types.ObjectId, ref: 'Carrier' },
+  agent: { type: mongoose.Schema.Types.ObjectId, ref: 'Agent' },
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
   
-// Define models
 const Agent = mongoose.model('Agent', agentSchema);
 const User = mongoose.model('User', userSchema);
 const Account = mongoose.model('Account', accountSchema);

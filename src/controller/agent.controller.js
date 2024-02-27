@@ -13,7 +13,13 @@ const lib = {}
 
 lib.uploadFile = async (data) => {
   try {
-    const agent = await Agent.create({ name: data.agent });
+    let agent = {};
+    const checkAgent = await Agent.findOne({ name: data.agent }).exec();
+    
+    if(checkAgent == null || Object.keys(checkAgent).length == 0){
+       agent = await Agent.create({ name: data.agent });
+    }
+
     const user = await User.create({ 
       firstName: data.firstname,
       dob: data.dob,
@@ -25,16 +31,16 @@ lib.uploadFile = async (data) => {
       gender: data.gender,
       userType: data.userType,
     });
-    const account = await Account.create({ accountName: data.account_name });
+    await Account.create({ accountName: data.account_name });
     const category = await Category.create({ categoryName: data.category_name });
     const carrier = await Carrier.create({ companyName: data.company_name });
-    const policy = await Policy.create({
+    await Policy.create({
       policyNumber: data.policy_number,
       startDate: (data.policy_start_date),
       endDate: (data.policy_end_date),
       category: category._id,
       carrier: carrier._id,
-      agent: agent._id,
+      agent: !checkAgent ? agent._id : checkAgent._id,
       user: user._id,
     });
   return

@@ -16,8 +16,6 @@ mongoose.connect(uri, connectOptions)
     console.error('MongoDB connection error:', err);
 });
 
-
-// Handle disconnection events
 mongoose.connection.on('disconnected', () => {
   console.log('MongoDB disconnected');
 });
