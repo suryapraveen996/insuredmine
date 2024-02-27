@@ -18,6 +18,6 @@ setInterval(() => {
   if (idlePercentage >= CPU_THRESHOLD_PERCENT) {
     restartServer();
   }
-}, 5000);
+}, 50000);
 
 module.exports = app;
