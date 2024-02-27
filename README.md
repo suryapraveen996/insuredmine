@@ -4,7 +4,7 @@ Clone the repository:
 https://github.com/suryapraveen996/insuredmine.git
 
 Install dependencies:
-npm i
+  npm i
 
 Start the application:
-npm start
+  npm start
