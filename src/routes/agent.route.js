@@ -3,7 +3,7 @@ const router = express.Router();
 
 module.exports = router;
 
-const agentCtrl = require('../controller/common.controller');
+const agentCtrl = require('../controller/agent.controller');
 
 router.post('/upload', uploadXls)
 router.get('/policy/:username', findInfo)
