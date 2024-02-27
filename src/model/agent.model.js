@@ -1,9 +1,5 @@
 const mongoose = require('mongoose');
 
-//TODO: create a common model
-mongoose.connect('mongodb://localhost:27017/insuredmine', { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-
 // Define a schema for the message model
 const agentSchema = new mongoose.Schema({
   name: String,

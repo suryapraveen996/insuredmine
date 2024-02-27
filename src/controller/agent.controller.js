@@ -7,6 +7,8 @@ const {
   Policy
 } = require('../model/agent.model');
 
+require('../model/mongodb/index')
+
 const lib = {}
 
 lib.uploadFile = async (data) => {

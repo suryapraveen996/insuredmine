@@ -1,23 +1,10 @@
-// Connect to MongoDB (Assuming MongoDB is used)
-const mongoose = require('mongoose');
+const { Message } = require('../model/message.model');
 const schedule = require('node-schedule');
 const moment = require('moment');
 const lib = {}
 
-//TODO: create a common model
-mongoose.connect('mongodb://localhost:27017/insuredmine', { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
+require('../model/mongodb/index')
 
-// Define a schema for the message model
-const messageSchema = new mongoose.Schema({
-    msg: String,
-    day: String,
-    time: String
-  });
-  
-// Create a model based on the schema
-const Message = mongoose.model('Message', messageSchema);
-  
 lib.scheduleMsg = async (msg, day, time) => {
   try {
     const cronSchedule = moment(`${day} ${time}`).format('X');
